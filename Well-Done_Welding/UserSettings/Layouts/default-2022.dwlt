@@ -75,7 +75,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 101
+  controlID: 105
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -96,8 +96,8 @@ MonoBehaviour:
     y: 0
     width: 365
     height: 760
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -505,7 +505,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Packages/com.unity.ugui/Tests/Runtime
+    - Assets/Sprites/Pixel_Made/Animations_Made
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -513,16 +513,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 32
   m_LastFolders:
-  - Packages/com.unity.ugui/Tests/Runtime
+  - Assets/Sprites/Pixel_Made/Animations_Made
   m_LastFoldersGridSize: 32
   m_LastProjectPath: C:\Users\0613s\Documents\GitHub\Well-Done_Welding\Well-Done_Welding
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e47c0000
-    m_LastClickedID: 31972
-    m_ExpandedIDs: 00000000ce740000d0740000d2740000d4740000d6740000d8740000da740000dc740000de740000e0740000e2740000e4740000c87c0000e27c000000ca9a3b
+    scrollPos: {x: 0, y: 180}
+    m_SelectedIDs: aa760000
+    m_LastClickedID: 30378
+    m_ExpandedIDs: 00000000d0750000d2750000d4750000d6750000d8750000da750000dc750000de750000e0750000e2750000e4750000e6750000e8750000ea750000fe75000016760000227600002476000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -550,7 +550,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ce740000d0740000d2740000d4740000d6740000d8740000da740000dc740000de740000e0740000e2740000e4740000
+    m_ExpandedIDs: 00000000d0750000d2750000d4750000d6750000d8750000da750000dc750000de750000e0750000e2750000e4750000e6750000e8750000ea750000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -577,7 +577,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300007c71000082740000a6710000fc70000048710000fa700000c2720000207900000a78000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -692,7 +692,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 86afffff0ab6ffff16fbffffd0700000de700000f8700000007100006a710000a2710000e6710000fc7100004472000058720000d8720000ec720000
+      m_ExpandedIDs: 16fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1100,7 +1100,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: -0.10969603, y: -0.53393406, z: -0.06940168}
     speed: 2
-    m_Value: {x: -0.64080876, y: -0.39785394, z: -0.072659604}
+    m_Value: {x: -0.10969603, y: -0.53393406, z: -0.06940168}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_Size:
     m_Target: 6.9140306
     speed: 2
-    m_Value: 7.2398224
+    m_Value: 6.9140306
   m_Ortho:
     m_Target: 1
     speed: 2
