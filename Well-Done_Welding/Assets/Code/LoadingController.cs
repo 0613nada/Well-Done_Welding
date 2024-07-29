@@ -42,9 +42,9 @@ public class LoadingController : MonoBehaviour
                 progressBar.value = op.progress;
             }
             else
-            {
+            {   //timer에 실제 경과 시간 반환
                 timer += Time.unscaledDeltaTime;
-                progressBar.value = Mathf.Lerp(0.9f,1f,timer);
+                progressBar.value = Mathf.Lerp(0.9f,1f,timer);//0.9~1 값까지 실시간으로 증가
                 if(progressBar.value >= 1f)
                 {
                     loadingText.gameObject.SetActive(false);
