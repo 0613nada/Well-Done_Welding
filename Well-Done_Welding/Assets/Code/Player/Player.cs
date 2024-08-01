@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+     //transferScene - transferPoint 값 저장
+    public string currentPoint;
+
     // 변수선언
 
     Vector2 mousePos;
@@ -13,14 +16,15 @@ public class Player : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer spriter;
     Animator animator;
-    Camera camera;
+    Camera cam;
     // 플레이어 속도
     public float PlayerSpeed;
 
 
     private void Start()
     {
-        camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        DontDestroyOnLoad(this.gameObject);
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
     private void Awake()
     {
@@ -35,7 +39,7 @@ public class Player : MonoBehaviour
     {
         // 마우스커서 인게임 인식
         mousePos = Input.mousePosition;
-        mousePos = camera.ScreenToWorldPoint(mousePos);
+        mousePos = cam.ScreenToWorldPoint(mousePos);
         // 벡터값을 인풋:Horizontal, Vertical값으로 입력받음
         inputVec.x = Input.GetAxisRaw("Horizontal");
         inputVec.y = Input.GetAxisRaw("Vertical");
