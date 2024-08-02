@@ -6,13 +6,16 @@ public class StartPoint : MonoBehaviour
 {
     public string startPoint;
     private Player thePlayer;
+    private CameraManager theCamera;
 
     void Start()
     {
+        theCamera = FindObjectOfType<CameraManager>();
         thePlayer = FindObjectOfType<Player>();
 
         if(startPoint == thePlayer.currentPoint)
         {
+            theCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, theCamera.transform.position.z);
             thePlayer.transform.position = this.transform.position;
         }
     }

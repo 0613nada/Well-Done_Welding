@@ -6,11 +6,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    static public Player instance;
+
      //transferScene - transferPoint 값 저장
     public string currentPoint;
 
     // 변수선언
-
     Vector2 mousePos;
     Vector2 inputVec;
     Rigidbody2D rigid;
@@ -20,19 +21,23 @@ public class Player : MonoBehaviour
     // 플레이어 속도
     public float PlayerSpeed;
 
-
     private void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
-        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
-    }
-    private void Awake()
-    {
-        // 값 초기화
-        PlayerSpeed = 100;
-        rigid = GetComponent<Rigidbody2D>();
-        spriter = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
+        if(instance == null)
+        {
+            PlayerSpeed = 100;
+            rigid = GetComponent<Rigidbody2D>();
+            spriter = GetComponent<SpriteRenderer>();
+            animator = GetComponent<Animator>();
+            cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            //플레이어 복제생성 방지
+            Destroy(this.gameObject);
+        }        
     }
 
     private void Update()
