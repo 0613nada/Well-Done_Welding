@@ -18,13 +18,20 @@ public class Player : MonoBehaviour
     SpriteRenderer spriter;
     Animator animator;
     Camera cam;
+    public PlayerUi playerUi;
     // 플레이어 속도
     public float PlayerSpeed;
+
+    public float dashSpeed = 15f;
+    public float dashTime = 0.2f;
+    private Vector3 dashDirection;
+    private bool isDashing = false;
+    private float dashTimer;
 
     private void Start()
     {
         if(instance == null)
-        {
+        {            
             PlayerSpeed = 100;
             rigid = GetComponent<Rigidbody2D>();
             spriter = GetComponent<SpriteRenderer>();
@@ -48,12 +55,24 @@ public class Player : MonoBehaviour
         // 벡터값을 인풋:Horizontal, Vertical값으로 입력받음
         inputVec.x = Input.GetAxisRaw("Horizontal");
         inputVec.y = Input.GetAxisRaw("Vertical");
+
+        
+        if (Input.GetMouseButtonDown(1) && !isDashing && playerUi.dashCount != 0)
+        {
+            playerUi.dashCount--;
+            StartDash();
+        }
+
+        if (isDashing)
+        {
+            Dash();
+        }
     }
 
     private void FixedUpdate()
     {
         // 플레이어 이동
-        rigid.velocity = (inputVec.normalized * 2.5f) * (PlayerSpeed / 100);
+        rigid.velocity = (inputVec.normalized * 2.5f) * (PlayerSpeed / 100);        
     }
 
     private void LateUpdate()
@@ -66,5 +85,27 @@ public class Player : MonoBehaviour
         
     }
 
-    
+    //대쉬 사전준비
+    void StartDash()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0f;
+        dashDirection = (mousePosition - transform.position).normalized;
+        isDashing = true;
+        dashTimer = dashTime;
+    }
+    // 대쉬
+    void Dash()
+    {
+        transform.position += dashDirection * dashSpeed * Time.deltaTime;
+        dashTimer -= Time.deltaTime;
+        
+
+        if (dashTimer <= 0)
+        {
+            isDashing = false;
+        }
+    }
+
+
 }

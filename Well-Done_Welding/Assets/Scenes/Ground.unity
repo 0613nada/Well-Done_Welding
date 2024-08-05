@@ -1037,7 +1037,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPoint: 
+  playerUi: {fileID: 1053894845}
   PlayerSpeed: 0
+  dashSpeed: 15
+  dashTime: 0.2
 --- !u!70 &1160875242
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

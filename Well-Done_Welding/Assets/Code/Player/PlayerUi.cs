@@ -16,10 +16,12 @@ public class PlayerUi : MonoBehaviour
     public GameObject dash1;
     public GameObject dash2;
 
+    private bool isCharging = false;
+
     private void Awake()
     {
-        dashCoolTime = 5;
-        dashMaxTime = 5;
+        dashCoolTime = 5f;
+        dashMaxTime = dashCoolTime;
         dashCount = 0;
         playerDashCount = 2;
         DashSlider  = GetComponent<Slider>();
@@ -28,7 +30,12 @@ public class PlayerUi : MonoBehaviour
     }    
     void LateUpdate()
     {
-        StartCoroutine(DashCharge());
+        //대시 충전 코루틴 실행
+        if (dashCount < playerDashCount && !isCharging)
+        {
+            StartCoroutine(DashCharge());
+        }
+
         // 대쉬보유갯수에 따른 UI
         switch (dashCount)
         {
@@ -40,9 +47,7 @@ public class PlayerUi : MonoBehaviour
                 break;
             case 1:
                 dash1.SetActive(true);
-                dash2.SetActive(false);
-                
-
+                dash2.SetActive(false);             
                 break;
             case 2:
                 dash1.SetActive(true);
@@ -54,28 +59,20 @@ public class PlayerUi : MonoBehaviour
         }
     }
 
-   
+   // 대시 충전 코루틴
     IEnumerator DashCharge()
     {
-        if (dashCount == playerDashCount)
-            yield break;
+        isCharging = true;
+
         while (dashCoolTime > 0)
         {
-                   
-            
             dashCoolTime -= Time.deltaTime;
-
             DashSlider.value = dashCoolTime / dashMaxTime;
-
-            if (dashCoolTime <= 0)
-            {
-                dashCount++;
-                dashCoolTime = dashMaxTime;
-                
-            }
-            yield break;
+            yield return null;
         }
-        
 
+        dashCount++;
+        dashCoolTime = dashMaxTime;
+        isCharging = false;
     }
 }
