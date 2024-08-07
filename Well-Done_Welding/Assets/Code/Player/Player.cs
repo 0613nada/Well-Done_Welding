@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
             cam = GameObject.Find("Main Camera").GetComponent<Camera>();
 
             DontDestroyOnLoad(this.gameObject);
+            instance = this;
         }
         else
         {
